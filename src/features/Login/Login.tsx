@@ -67,7 +67,8 @@ export const Login = () => {
               // onBlur={formik.handleBlur}
               {...formik.getFieldProps('email')}
             />
-            {formik.touched.email && formik.errors.email ? <div style={{color: 'red'}}>{formik.errors.email}</div> : null}
+            {formik.touched.email && formik.errors.email ?
+              <div style={{color: 'red'}}>{formik.errors.email}</div> : null}
             <TextField
               type="password"
               label="Password"
@@ -78,14 +79,11 @@ export const Login = () => {
               // onBlur={formik.handleBlur}
               {...formik.getFieldProps('password')}
             />
-            {formik.touched.password && formik.errors.password ? <div style={{color: 'red'}}>{formik.errors.password}</div> : null}
+            {formik.touched.password && formik.errors.password ?
+              <div style={{color: 'red'}}>{formik.errors.password}</div> : null}
             <FormControlLabel
               label={'Remember me'}
-              control={<Checkbox
-                onChange={formik.handleChange}
-                checked={formik.values.rememberMe}
-                name='rememberMe'
-              />}
+              control={<Checkbox {...formik.getFieldProps('rememberMe')} />}
             />
             <Button type={'submit'} variant={'contained'} color={'primary'}>
               Login
